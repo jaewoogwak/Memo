@@ -1,0 +1,11 @@
+.list {
+    border: solid 2.5px black;
+}
+
+.memo {
+    text-align: center;
+    border: dashed 2px blue;
+    margin-top:10px;
+    margin-bottom: 10px;
+    padding:10px;
+}
