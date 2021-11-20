@@ -1,6 +1,6 @@
 import React from "react";
-import Memo from "./Memo";
-import '../style.css';
+import Memo from "./Memo.js";
+import './memoStyle.css';
 import { useState } from "react";
 
 const MemoList = (props) => {

@@ -1,11 +1,8 @@
 import './App.css';
 import './style.css'
 import { useState } from 'react';
-import View from './component/View';
-import Nav from './component/Nav';
-import MemoList from './component/MemoList';
-import MemoAddButton from './component/MemoAddButton';
-import Dialog from './component/FormDialog';
+import MemoList from './component/Memos/MemoList';
+import Dialog from './component/Memos/FormDialog';
 import Bar from './component/Calender/Bar';
 
 function App() {
