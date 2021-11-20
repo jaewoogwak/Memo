@@ -1,6 +1,6 @@
 import React from "react";
 import Memo from "./Memo";
-import './style.css';
+import '../style.css';
 import { useState } from "react";
 
 const MemoList = (props) => {
@@ -11,7 +11,7 @@ const MemoList = (props) => {
 
 
     return (
-        <div class = "list">
+        <div>
             메모 리스트
             {/* {memoList} */}
             {memoList.map(memo => {

@@ -1,11 +1,64 @@
+.content {
+    margin: 0 auto;
+    border: solid 2.5px red;
+    width: 500px;
+    height: 664px;
+}
+
+.nav-date {
+    margin: 0 auto;
+    border: solid 2.5px blue;
+    height: 60px;
+
+
+}
+
 .list {
+    /* margin: 0 auto; */
     border: solid 2.5px black;
+    width: 100%;
+    height: 80%;
+    text-align: center;
+}
+
+.bt {
+    width: 100%;
+    height: 74px;
+}
+
+.button {
+    height: 100%;
+    width: 100%;
 }
 
 .memo {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
     text-align: center;
-    border: dashed 2px blue;
+    background-color:rgb(225, 225, 228);
+    border: solid 1px rgb(184, 184, 190);
+    border-radius: 20px;
     margin-top:10px;
     margin-bottom: 10px;
     padding:10px;
+    width: 100%;
+    font-size: 18px;
 }
+
+.del {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    background-color: aqua;
+
+}
+
+.text {
+    text-align: center;
+    width: 100%;
+    padding-left: 6%;
+    padding-right:6%;
+
+}
+

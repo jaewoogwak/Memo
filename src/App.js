@@ -1,10 +1,11 @@
 import './App.css';
+import './style.css'
 import { useState } from 'react';
-import View from './View';
-import Nav from './Nav';
-import MemoList from './MemoList';
-import MemoAddButton from './MemoAddButton';
-import Dialog from './FormDialog';
+import View from './component/View';
+import Nav from './component/Nav';
+import MemoList from './component/MemoList';
+import MemoAddButton from './component/MemoAddButton';
+import Dialog from './component/FormDialog';
 
 function App() {
 
@@ -13,21 +14,24 @@ function App() {
 
   const handleAddMemo = (text) => {
     console.log("addMemo");
-    setList(list.concat([text]))    
+    setList(list.concat([text]))
     console.log('list', list)
 
   }
 
   return (
-    <div>
-      <div>
+    <div class="content">
+      <div class="nav-date">
         <Nav />
-        <Dialog onClick={handleAddMemo} />
-        {/* <MemoAddButton onClick={handleAddMemo} /> */}
+      </div>
+      <div class="list">
+        <MemoList memoList={list} />
       </div>
       <div>
-        <MemoList memoList ={list}/>
+        <Dialog onClick={handleAddMemo} />
+
       </div>
+
     </div>
   );
 }

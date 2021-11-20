@@ -29,8 +29,8 @@ export default function FormDialog(props) {
     handleClose();
   }
   return (
-    <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+    <div class ="bt">
+      <Button className = "button" variant="outlined" onClick={handleClickOpen}>
         메모 추가
       </Button>
       <Dialog open={open} onClose={handleClose}>
