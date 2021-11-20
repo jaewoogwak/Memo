@@ -1,0 +1,50 @@
+.calender-bar {
+    display: flex;
+    justify-content: space-between;
+}
+.present {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 28px;
+
+}
+
+.content-date {
+    display: flex;
+    justify-content: right;
+}
+
+.day {
+    margin:5px;
+}
+
+.yesterday {
+    border-radius: 100%;
+    width: 38px;
+    height: 38px;
+    background-color: aqua;
+    margin:10px;
+}
+
+.today {
+    border-radius: 100%;
+    width: 46px;
+    height: 46px;
+    background-color: aqua;
+}
+
+.tomorrow {
+    border-radius: 100%;
+    width: 38px;
+    height: 38px;
+    background-color: aqua;
+    margin:10px
+
+}
+
+.button {
+    width: 46px;
+    height: 46px;
+    margin-top:5px;
+}

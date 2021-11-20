@@ -6,6 +6,7 @@ import Nav from './component/Nav';
 import MemoList from './component/MemoList';
 import MemoAddButton from './component/MemoAddButton';
 import Dialog from './component/FormDialog';
+import Bar from './component/Calender/Bar';
 
 function App() {
 
@@ -22,7 +23,8 @@ function App() {
   return (
     <div class="content">
       <div class="nav-date">
-        <Nav />
+        <Bar/>
+        {/* <Nav /> */}
       </div>
       <div class="list">
         <MemoList memoList={list} />
