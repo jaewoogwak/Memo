@@ -12,7 +12,6 @@ const MemoList = (props) => {
 
     return (
         <div>
-            메모 리스트
             {/* {memoList} */}
             {memoList.map(memo => {
                 return <Memo key ={keyCount++}text = {memo}/>
