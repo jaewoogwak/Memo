@@ -23,7 +23,7 @@
     border-radius: 100%;
     width: 38px;
     height: 38px;
-    background-color: aqua;
+    background-color: gainsboro;
     margin:10px;
 }
 
@@ -31,14 +31,14 @@
     border-radius: 100%;
     width: 46px;
     height: 46px;
-    background-color: aqua;
+    background-color: skyblue;
 }
 
 .tomorrow {
     border-radius: 100%;
     width: 38px;
     height: 38px;
-    background-color: aqua;
+    background-color: gainsboro;
     margin:10px
 
 }
