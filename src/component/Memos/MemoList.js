@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const MemoList = (props) => {
     
-    const { memoList } = props;
+    const { memoList, handleDeleteMemo, setList } = props;
     let keyCount = 0;    
     
 
@@ -14,7 +14,7 @@ const MemoList = (props) => {
         <div>
             {/* {memoList} */}
             {memoList.map(memo => {
-                return <Memo key ={keyCount++}text = {memo}/>
+                return <Memo handleDeleteMemo ={handleDeleteMemo} memoList ={memoList} key ={keyCount++} text = {memo} setList ={setList}/>
             } )}
 
         </div>
