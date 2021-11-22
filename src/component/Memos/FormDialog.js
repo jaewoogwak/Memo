@@ -31,7 +31,7 @@ export default function FormDialog(props) {
   return (
     <div className ="bt">
       <Button className = "addBtn" variant="outlined" onClick={handleClickOpen}>
-        메모 추가
+        할 일 추가
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent>
@@ -48,7 +48,7 @@ export default function FormDialog(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>취소</Button>
-          <Button onClick={handleSubmit}>생각 추가</Button>
+          <Button onClick={handleSubmit}>할 일 추가</Button>
         </DialogActions>
       </Dialog>
     </div>

@@ -10,11 +10,9 @@ const MemoList = (props) => {
     
     return (
         <div>
-            {/* {memoList} */}
             {memoList.map(memo => {
-
                 if(memo.date === date)
-                return <Memo memoList ={memoList} key ={keyCount++} text = {memo.text} setList ={setList} date ={memo.date}/>
+                return <Memo memoList ={memoList} setList ={setList} key ={keyCount++} text = {memo.text} date ={memo.date}/>
             })}
         </div>
         

@@ -147,8 +147,6 @@ const Bar = (props) => {
                     <img src={NextBtn} alt="내일" />
                 </div>
             </div>
-
-
         </div>
     )
 
