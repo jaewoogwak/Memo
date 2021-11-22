@@ -43,10 +43,10 @@ function App() {
         <Bar pageNext = {pageNext} pagePrevious ={pagePrevious} getDate = {getDate}/>
       </div>
       <div class="list">
-        <p>{date}</p>
+        {/* <p>{date}</p> */}
         <div>
           {/* {page.view} */}
-          <MemoList memoList={list} setList = {setList} />
+          <MemoList memoList={list} setList = {setList} date ={date}/>
         </div>
       </div>
       <div>
