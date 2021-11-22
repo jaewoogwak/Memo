@@ -6,14 +6,15 @@ import previousBtn from './left.png';
 import { useState, useEffect } from 'react'
 
 
-const Bar = () => {
+const Bar = (props) => {
     // 날짜 조작
+    const { pageNext, pagePrevious, getDate } = props;
     const [presentDay, setPresentDay] = useState({
         year: 0,
         momth: 0,
         day: 0
     })
-    const [today, setToday] = useState('') // 처음 랜더링
+    const [today, setToday] = useState(`${new Date().getFullYear()}${new Date().getMonth()+1}${new Date().getDate()}`) // 처음 랜더링
 
     const setDay = () => {
         const date = new Date();
@@ -35,6 +36,7 @@ const Bar = () => {
         const year = date.getFullYear();
         const month = ("0" + (1 + date.getMonth())).slice(-2);
         const day = ("0" + date.getDate()).slice(-2);
+        getDate(`${year}${month}${day}`);
         return [year, month, day];
 
     }
@@ -44,6 +46,7 @@ const Bar = () => {
         const mm = Number(presentDay.momth) //Number(getToday()[1]);
         const dd = Number(presentDay.day) //Number(getToday()[2]);
         console.log('yymmdd', yy, mm, dd);
+        // getDate(`${yy}${mm}${dd}`);
         // console.log(`${yy}-${mm}-${dd+1}`)   
         // const date = new Date(yy, mm, dd);
         const now = new Date(yy, mm - 1, dd);
@@ -58,6 +61,8 @@ const Bar = () => {
         // const month = ("0" + (1 + yesterday.getMonth())).slice(-2);
         // const day = ("0" + (yesterday.getDate())).slice(-2);
         console.log('year,month,day', year, month, day)
+        getDate(`${year}${month}${day}`);
+
         // const yymmdd = [year, month, day];
         setToday(`${year}년 ${month}월 ${day}일`)
         setPresentDay((prevState) => {
@@ -72,6 +77,7 @@ const Bar = () => {
         const mm = Number(presentDay.momth) //Number(getToday()[1]);
         const dd = Number(presentDay.day) //Number(getToday()[2]);
         console.log('yymmdd', yy, mm, dd);
+        // getDate(`${yy}${mm}${dd}`);
         // console.log(`${yy}-${mm}-${dd+1}`)   
         // const date = new Date(yy, mm, dd);
         const now = new Date(yy, mm - 1, dd);
@@ -86,6 +92,7 @@ const Bar = () => {
         // const month = ("0" + (1 + yesterday.getMonth())).slice(-2);
         // const day = ("0" + (yesterday.getDate())).slice(-2);
         console.log('year,month,day', year, month, day)
+        getDate(`${year}${month}${day}`);
         // const yymmdd = [year, month, day];
         setToday(`${year}년 ${month}월 ${day}일`)
         setPresentDay((prevState) => {
@@ -97,18 +104,23 @@ const Bar = () => {
 
     const moveNext = () => {
         console.log("next");
+        pageNext();
         nextDay();
     }
 
     const movePrevious = () => {
         console.log("previous");
-        previousDay()
+        pagePrevious();
+        previousDay();
     }
 
     useEffect(() => {
         setDay();
-        console.log(today)
+        // parseToday(today);
+        console.log('today', today)
+        getDate(today);
     }, [])
+
     return (
         <div class="calender-bar">
             {console.log('rendering')}

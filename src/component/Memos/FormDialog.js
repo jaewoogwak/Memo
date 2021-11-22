@@ -11,7 +11,7 @@ import { useRef } from 'react';
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
   const input = useRef();
-  const { onClick : addMemo } = props;
+  const { onClick : addMemo, date } = props;
 
 
   const handleClickOpen = () => {
@@ -25,7 +25,7 @@ export default function FormDialog(props) {
   const handleSubmit = (e) => {
     console.log('data Submit', e.target);
     console.log(input.current.value)
-    addMemo(input.current.value)
+    addMemo(input.current.value, date)
     handleClose();
   }
   return (
