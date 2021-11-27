@@ -1,26 +1,3 @@
-.content {
-    margin: 0 auto;
-    border: solid 2.5px #e2eff9;
-    width: 500px;
-    height: 664px;
-}
-
-.nav-date {
-    margin: 0 auto;
-    border: solid 2.5px #e2eff9;
-    height: 60px;
-
-
-}
-
-.list {
-    /* margin: 0 auto; */
-    /* border: solid 2.5px #b5d8f0; */
-    width: 100%;
-    height: 80%;
-    text-align: center;
-}
-
 .bt {
     width: 100%;
     height: 74px;
@@ -49,7 +26,7 @@
     height: 60px;
 }
 
-.del {
+.deleteBtn {
     border-radius: 100%;
     width: 40px;
     height: 40px;

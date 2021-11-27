@@ -1,11 +1,12 @@
 import React from "react";
 import { useRef } from 'react';
-
+import styled from "styled-components";
+// import {} from '@/component'
 const MemoDeleteButton = (props) => {
 
     const { handleDeleteMemo } = props;
     return (
-        <button className="del" onClick={handleDeleteMemo}>X</button>
+        <button onClick={handleDeleteMemo}>X</button>
     )
 }
 
