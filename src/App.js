@@ -12,36 +12,43 @@ const ContentWrapper = styled.div`
     margin: 0 auto;
     border: solid 2.5px #e2eff9;
     width: 500px;
-    height: 664px;
+    height: 100vh;
+
+
+    @media (max-width : 768px) {
+      width: 100%;
+      height: 100vh;
+    }
   `;
 
 const CalenderBar = styled.div`
     margin: 0 auto;
-    border: solid 2.5px #e2eff9;
+    // border: solid 2.5px #e2eff9;
+    border : solid 2.5px red;
     height: 60px;
+    @media (max-width : 768px) {
+      width: 100%;
+      height: 8vh;
+
+    }
   `;
 
 const Content = styled.div`
     width: 100%;
-    height: 80%;
+    border: solid 2.5px blue;
+    height: 82vh;
     text-align: center;
   `
 
 
 function App() {
-
-
-
   const [list, setList] = useState([{ 'text': '', 'date': '' }]);
   const [date, setDate] = useState('');
-
   const delMemo = useRef();
-
   const handleAddMemo = (text, date) => {
     console.log("addMemo");
     setList(list.concat([{ 'text': text, 'date': date }]))
     console.log('list', list)
-
   }
 
   const pageNext = () => {

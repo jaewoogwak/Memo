@@ -18,6 +18,11 @@ const Present = styled.div`
     font-size: 32px;
     font-family:"BaeMin";
     color: rgb(57, 172, 218);
+    @media (max-width : 768px) {
+        color:red;
+        font-size:22px;
+
+    }
 `
 
 const SwitchDate = styled.div`
