@@ -2,9 +2,72 @@ import React from "react";
 import './calenderTab.css';
 import NextBtn from './right.png';
 import previousBtn from './left.png';
-
 import { useState, useEffect } from 'react'
+import styled from 'styled-components'
 
+const CalenderContents = styled.div`
+    display: flex;
+    justify-content: space-between;
+    background-color: #b5d8f0;
+`
+
+const Present = styled.div`
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 12px;
+    font-size: 32px;
+    font-family:"BaeMin";
+    color: rgb(57, 172, 218);
+`
+
+const SwitchDate = styled.div`
+    display: flex;
+    justify-content: right;
+    margin-right: 1%;
+
+`
+const Yesterday = styled.div`
+    margin:5px;
+    border-radius: 100%;
+    width: 38px;
+    height: 38px;
+    background-color: #cce4f5;
+    margin:10px;
+    text-align: center;
+    font-size: 16px;
+    font-family:"BaeMin";
+    color:#606e79;
+    padding-top: 10px;
+`
+
+const Today = styled.div`
+    margin:5px;
+    border-radius: 100%;
+    width: 46px;
+    height: 46px;
+    background-color:#cdd1f5;
+    text-align: center;
+    font-family:"BaeMin";
+    font-size: 30px;
+    color: #0516cd;
+    padding-top: 7px;
+`
+
+const Tomorrow = styled.div`
+    margin:5px;
+    border-radius: 100%;
+    width: 38px;
+    height: 38px;
+    background-color: #cce4f5;
+    margin:10px;
+    text-align: center;
+    font-size: 16px;
+    font-family:"BaeMin";
+    color:#606e79;
+    padding-top: 10px;
+
+
+`
 
 const Bar = (props) => {
     // 날짜 조작
@@ -21,7 +84,6 @@ const Bar = (props) => {
         const year = date.getFullYear();
         const month = ("0" + (1 + date.getMonth())).slice(-2);
         const day = ("0" + date.getDate()).slice(-2);
-        // setPresentDay({year : year, month : month, day : day});
         setPresentDay((prevState) => {
             return { ...prevState, year: year, momth: month, day: day }
         })
@@ -46,9 +108,7 @@ const Bar = (props) => {
         const mm = Number(presentDay.momth) //Number(getToday()[1]);
         const dd = Number(presentDay.day) //Number(getToday()[2]);
         console.log('yymmdd', yy, mm, dd);
-        // getDate(`${yy}${mm}${dd}`);
-        // console.log(`${yy}-${mm}-${dd+1}`)   
-        // const date = new Date(yy, mm, dd);
+    
         const now = new Date(yy, mm - 1, dd);
         console.log('now', now);
         var tomorrow = new Date(now.setDate(now.getDate() + 1));	// 내일
@@ -57,29 +117,20 @@ const Bar = (props) => {
         const year = tomorrow.getFullYear();
         const month = tomorrow.getMonth() + 1;
         const day = tomorrow.getDate();
-        // const year = yesterday.getFullYear();
-        // const month = ("0" + (1 + yesterday.getMonth())).slice(-2);
-        // const day = ("0" + (yesterday.getDate())).slice(-2);
         console.log('year,month,day', year, month, day)
         getDate(`${year}${month}${day}`);
 
-        // const yymmdd = [year, month, day];
         setToday(`${year}년 ${month}월 ${day}일`)
         setPresentDay((prevState) => {
             return { ...prevState, year: year, momth: month, day: day }
         });
-        // console.log(presentDay);
-        // console.log(yymmdd);
-    }
+      }
 
     const previousDay = () => {
         const yy = Number(presentDay.year) //getToday()[0];
         const mm = Number(presentDay.momth) //Number(getToday()[1]);
         const dd = Number(presentDay.day) //Number(getToday()[2]);
         console.log('yymmdd', yy, mm, dd);
-        // getDate(`${yy}${mm}${dd}`);
-        // console.log(`${yy}-${mm}-${dd+1}`)   
-        // const date = new Date(yy, mm, dd);
         const now = new Date(yy, mm - 1, dd);
         console.log('now', now);
         var yesterday = new Date(now.setDate(now.getDate() - 1));	// 내일
@@ -88,18 +139,13 @@ const Bar = (props) => {
         const year = yesterday.getFullYear();
         const month = yesterday.getMonth() + 1;
         const day = yesterday.getDate();
-        // const year = yesterday.getFullYear();
-        // const month = ("0" + (1 + yesterday.getMonth())).slice(-2);
-        // const day = ("0" + (yesterday.getDate())).slice(-2);
         console.log('year,month,day', year, month, day)
         getDate(`${year}${month}${day}`);
-        // const yymmdd = [year, month, day];
+
         setToday(`${year}년 ${month}월 ${day}일`)
         setPresentDay((prevState) => {
             return { ...prevState, year: year, momth: month, day: day }
         });
-        // console.log(presentDay);
-        // console.log(yymmdd);
     }
 
     const moveNext = () => {
@@ -116,39 +162,37 @@ const Bar = (props) => {
 
     useEffect(() => {
         setDay();
-        // parseToday(today);
         console.log('today', today)
         getDate(today);
     }, [])
 
     return (
-        <div class="calender-bar">
+        <CalenderContents>
             {console.log('rendering')}
-            <div class="present">
-                {/* {presentDay.day} */}
+            <Present>
                 {today}
-            </div>
-            <div class="content-date">
-                {/* <button  onClick={movePrevious} class="ico_arrow button" type="button">클릭</button> */}
+            </Present>
+            <SwitchDate>
                 <div onClick={movePrevious} class="button previous">
                     <img src={previousBtn} alt="어제" />
                 </div>
-                <div class="day yesterday">
+                <Yesterday>
                     {Number(presentDay.day) - 1}
-                </div>
-                <div class="day today">
+                </Yesterday>
+                <Today>
                     {presentDay.day}
-                </div>
-                <div class="day tomorrow">
+                </Today>
+                <Tomorrow>
                     {Number(presentDay.day) + 1}
-
-                </div>
+                </Tomorrow>
                 <div onClick={moveNext} class="button next">
                     <img src={NextBtn} alt="내일" />
                 </div>
-            </div>
-        </div>
+            </SwitchDate>
+        </CalenderContents>
+        
     )
+
 
 }
 

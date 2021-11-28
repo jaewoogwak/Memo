@@ -1,68 +1,14 @@
-.content {
-    margin: 0 auto;
-    border: solid 2.5px #e2eff9;
-    width: 500px;
-    height: 664px;
-}
-
-.nav-date {
-    margin: 0 auto;
-    border: solid 2.5px #e2eff9;
-    height: 60px;
-
-
-}
-
-.list {
-    /* margin: 0 auto; */
-    /* border: solid 2.5px #b5d8f0; */
-    width: 100%;
-    height: 80%;
-    text-align: center;
-}
-
-.bt {
-    width: 100%;
-    height: 74px;
-}
-
 .addBtn {
     height: 100%;
     width: 100%;
 }
 
-.memo {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    text-align: center;
-    background-color:#e2eff9;
-    border: solid 1px rgb(184, 184, 190);
-    border-radius: 20px;
-    margin-top:10px;
-    margin-bottom: 10px;
-    padding:10px;
-    width: 100%;
-    font-size: 30px;
-    color: #004170;
-    font-family: "BaeMin";
-    height: 60px;
-}
-
-.del {
+.deleteBtn {
     border-radius: 100%;
     width: 40px;
     height: 40px;
     background-color: #7dbae5;
 
-}
-
-.text {
-    text-align: center;
-    width: 100%;
-    padding-left: 6%;
-    padding-right:6%;
-    padding-top: 4px;
 }
 
 @font-face {

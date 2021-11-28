@@ -1,12 +1,10 @@
 import React from "react";
-import { useRef } from 'react';
-import styled from "styled-components";
-// import {} from '@/component'
-const MemoDeleteButton = (props) => {
+import './memoStyle.css';
 
+const MemoDeleteButton = (props) => {
     const { handleDeleteMemo } = props;
     return (
-        <button onClick={handleDeleteMemo}>X</button>
+        <button className = "deleteBtn" onClick={handleDeleteMemo}>X</button>
     )
 }
 

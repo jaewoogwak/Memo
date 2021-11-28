@@ -1,12 +1,16 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import { useRef } from 'react';
+import styled from 'styled-components'
+import './memoStyle.css'
+
+const AddButtonWrapper = styled.div`
+    width: 100%;
+    height: 74px;
+`
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
@@ -29,7 +33,7 @@ export default function FormDialog(props) {
     handleClose();
   }
   return (
-    <div className ="bt">
+    <AddButtonWrapper>
       <Button className = "addBtn" variant="outlined" onClick={handleClickOpen}>
         할 일 추가
       </Button>
@@ -39,8 +43,6 @@ export default function FormDialog(props) {
           <input 
             type ="text" 
             autoFocus
-            // margin="dense"
-            // id="name"
             placeholder="What do you think of?"
             type="text"
             ref={input}
@@ -51,6 +53,6 @@ export default function FormDialog(props) {
           <Button onClick={handleSubmit}>할 일 추가</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </AddButtonWrapper>
   );
 }

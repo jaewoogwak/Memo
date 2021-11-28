@@ -1,7 +1,4 @@
 import './App.css';
-// import './component/style.css'
-
-// import 'src/component/style.css';
 import { useState, useRef, useEffect } from 'react';
 import MemoList from './component/Memos/MemoList';
 import Dialog from './component/Memos/FormDialog';

@@ -1,13 +1,9 @@
 import React from "react";
 import Memo from "./Memo.js";
-import './memoStyle.css';
-import { useState } from "react";
 
 const MemoList = (props) => {
-    
     const { memoList, setList, date } = props;
-    let keyCount = 0;    
-    
+    let keyCount = 0;
     return (
         <div>
             {memoList.map(memo => {
@@ -15,7 +11,6 @@ const MemoList = (props) => {
                 return <Memo memoList ={memoList} setList ={setList} key ={keyCount++} text = {memo.text} date ={memo.date}/>
             })}
         </div>
-        
     )
 }
 
