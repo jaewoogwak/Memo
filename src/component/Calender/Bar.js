@@ -9,6 +9,12 @@ const CalenderContents = styled.div`
     display: flex;
     justify-content: space-between;
     background-color: #b5d8f0;
+    @media (max-width : 768px) {
+        width: 100vh;
+        display: flex;
+        justify-content: space-between;
+        
+    }
 `
 
 const Present = styled.div`
@@ -76,7 +82,7 @@ const Tomorrow = styled.div`
 
 const Bar = (props) => {
     // 날짜 조작
-    const { pageNext, pagePrevious, getDate } = props;
+    const { getDate } = props;
     const [presentDay, setPresentDay] = useState({
         year: 0,
         momth: 0,
@@ -155,13 +161,11 @@ const Bar = (props) => {
 
     const moveNext = () => {
         console.log("next");
-        pageNext();
         nextDay();
     }
 
     const movePrevious = () => {
         console.log("previous");
-        pagePrevious();
         previousDay();
     }
 

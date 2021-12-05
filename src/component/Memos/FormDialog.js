@@ -3,19 +3,27 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components'
 import './memoStyle.css'
 
 const AddButtonWrapper = styled.div`
+    margin: 0 auto;
     width: 100%;
-    height: 74px;
+    height: 80px;
+    // border: 2.5px solid green;
+    // @media (max-width : 768px) {
+    //   margin: 0 auto;
+
+    //   width: 100vh;
+    //   height: 10vh;
+    // }
 `
 
 export default function FormDialog(props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const input = useRef();
-  const { onClick : addMemo, date } = props;
+  const { onAddMemo, date } = props;
 
 
   const handleClickOpen = () => {
@@ -29,7 +37,7 @@ export default function FormDialog(props) {
   const handleSubmit = (e) => {
     console.log('data Submit', e.target);
     console.log(input.current.value)
-    addMemo(input.current.value, date)
+    onAddMemo(input.current.value, date)
     handleClose();
   }
   return (

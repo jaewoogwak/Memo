@@ -1,10 +1,8 @@
 import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import MemoList from './component/Memos/MemoList';
-import Dialog from './component/Memos/FormDialog';
+import FormDialog from './component/Memos/FormDialog';
 import Bar from './component/Calender/Bar';
-import Responsive from './responsive';
-import { MOBILE } from './responsive';
 import styled from 'styled-components';
 
 
@@ -15,66 +13,77 @@ const ContentWrapper = styled.div`
     height: 100vh;
 
 
-    @media (max-width : 768px) {
-      width: 100%;
-      height: 100vh;
-    }
+    // @media (max-width : 768px) {
+    //   margin: 0 auto;
+    //   width: 100%;
+    //   height: 100vh;
+    // }
   `;
 
 const CalenderBar = styled.div`
     margin: 0 auto;
     // border: solid 2.5px #e2eff9;
-    border : solid 2.5px red;
-    height: 60px;
-    @media (max-width : 768px) {
-      width: 100%;
-      height: 8vh;
+    // border : solid 2.5px red;
+    height: 10vh;
+    // @media (max-width : 768px) {
+    //   margin: 0 auto;
 
-    }
+    //   width: 100vh;
+    //   height: 8vh;
+    // }
   `;
 
 const Content = styled.div`
-    width: 100%;
-    border: solid 2.5px blue;
-    height: 82vh;
+    margin: 0 auto;
+    // border: solid 2.5px blue;
+    height: 80vh
     text-align: center;
+    // @media (max-width : 768px) {
+    //   width: 100vh;
+    //   margin:0 auto;
+
+    //   height: 82vh;
+  
+    // }
   `
 
-
 function App() {
-  const [list, setList] = useState([{ 'text': '', 'date': '' }]);
+  const [list, setList] = useState([
+  ]);
   const [date, setDate] = useState('');
-  const delMemo = useRef();
+  const nextId = useRef(1);
   const handleAddMemo = (text, date) => {
-    console.log("addMemo");
-    setList(list.concat([{ 'text': text, 'date': date }]))
+    const memo = {
+      id : nextId.current,
+      text : text,
+      date : date
+    }
+    setList([...list, memo])
+    nextId.current +=1;
     console.log('list', list)
   }
 
-  const pageNext = () => {
-    console.log('page next')
-  }
-
-  const pagePrevious = () => {
-    console.log('page previous')
+  const handleDeleteMemo2 = id => {
+    setList(list.filter(user => user.id !== id));
   }
 
   const getDate = (date) => {
     console.log('getDate -> setDate', date);
     setDate(date);
   }
+
   { document.title = "Memo app" }
 
   return (
     <ContentWrapper>
       {console.log('app render')}
       <CalenderBar>
-        <Bar pageNext={pageNext} pagePrevious={pagePrevious} getDate={getDate} />
+        <Bar getDate={getDate} />
       </CalenderBar>
       <Content>
-        <MemoList memoList={list} setList={setList} date={date} />
+        <MemoList memoList={list} setList={setList} date={date} onRemoveMemo ={handleDeleteMemo2} />
       </Content>
-      <Dialog onClick={handleAddMemo} date={date} />
+      <FormDialog onAddMemo ={handleAddMemo} date={date} />
     </ContentWrapper>
 
   );

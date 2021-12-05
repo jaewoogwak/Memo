@@ -2,14 +2,11 @@ import React from "react";
 import Memo from "./Memo.js";
 
 const MemoList = (props) => {
-    const { memoList, setList, date } = props;
-    let keyCount = 0;
+    const { memoList, date , onRemoveMemo} = props;
+    
     return (
         <div>
-            {memoList.map(memo => {
-                if(memo.date === date)
-                return <Memo memoList ={memoList} setList ={setList} key ={keyCount++} text = {memo.text} date ={memo.date}/>
-            })}
+            {memoList.filter(memo => memo.date === date).map(memo => <Memo memo = {memo} key={memo.id} text={memo.text} date={memo.date} onRemoveMemo = {onRemoveMemo} />)}
         </div>
     )
 }
